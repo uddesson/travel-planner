@@ -1,1 +1,15 @@
-/* TBA */
+/* General */
+.grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 10px;
+}
+
+.header{
+    background-color: lightgrey;
+}
+
+/* Used for testing - to be removed */
+.testborder{
+    border: 1px solid tomato;
+}
