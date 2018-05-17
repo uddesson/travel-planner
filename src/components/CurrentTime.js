@@ -32,7 +32,7 @@ class CurrentTime extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="header__current-time">
                 <p>STHLM: {this.state.stockholmTime}</p>
                 <p>TOKYO: {this.state.tokyoTime}</p>
             </div>

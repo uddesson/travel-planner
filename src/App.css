@@ -21,6 +21,7 @@ h1,h2,h3,h4,h5,h6{
 
 h1{
     text-transform: uppercase;
+    line-height: 170%;
 }
 
 .main{
@@ -39,25 +40,40 @@ h1{
 
 .header{
     padding: 10px;
-    color: #fff;
+    color: #ededed;
     background-image: url('./images/header-background-one.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
-    
+}
+
+.header__current-time{
+    color: #969696;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    margin-bottom: 40px;
+}
+
+.header__countdown-box{
+    background-color: rgba(76, 103, 90, 0.4);
+    border-radius: 4px;
 }
 
 /*
 Utilities
  */
-.align-right{
+.u-center{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.u-right{
     text-align: right;
 }
 
-
-/*
-Tablet and desktop
-*/
+/****************************
+**** Tablet and desktop *****
+*****************************/
 @media only screen and (min-width: 600px){
     h1{
         font-size: 3.6em;
@@ -65,5 +81,9 @@ Tablet and desktop
 
     .header{
         padding: 40px;
+    }
+
+    .grid{
+        grid-column-gap: 20px;
     }
 }
