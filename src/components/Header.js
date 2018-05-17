@@ -1,13 +1,15 @@
 import React from 'react';
-import Info from './Info';
-import Title from './Title';
 import CurrentTime from './CurrentTime';
+import Title from './Title';
+import CountDown from './CountDown';
+import Info from './Info';
 
 function Header(){
     return(
         <div className="header">
             <CurrentTime />
             <Title destination="Tokyo" />
+            <CountDown />
             <Info />
         </div>
     );
