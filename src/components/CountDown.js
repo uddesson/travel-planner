@@ -1,14 +1,26 @@
 import React from 'react';
+import Days from './Days';
+import Hours from './Hours';
+import Minutes from './Minutes';
 
-class CountDown extends React.Component{
+function CountDown(props){
 
-    render(){
+    // Ideas for now. This state maybe needs to be able to change elsewhere
+    // state = {
+    //     daysLeft: '',
+    //     hoursLeft: '',
+    //     minutesLeft: ''
+    // }
+
         return(
-            <div className="testborder u-center">
-                <h2>DD : HH : MM : SS</h2>
+            <div className="u-center">
+                <div className="grid">
+                    <Days />
+                    <Hours />
+                    <Minutes />
+                </div>
             </div>
         );
-    }
 }
 
 export default CountDown;
