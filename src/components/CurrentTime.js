@@ -1,33 +1,43 @@
 import React from 'react';
 
-/* TODO: Make this into a class and use state
-+ componentDidMount to update time every sec */
+class CurrentTime extends React.Component{
 
-function CurrentTime(){
+    state = {
+        stockholmTime: '',
+        tokyoTime: ''
+    }
 
-    function setTime(){
+    componentDidMount(){
+        this.interval = setInterval(
+            () => this.setTime(), 1000
+        );
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.interval);
+    }
+
+    setTime =() => {
         let stockholmTime = new Date ();
-        let tokyoTime = new Date(stockholmTime);
+        let tokyoTime = new Date();
 
         // Manually set the time difference
         tokyoTime.setHours(stockholmTime.getHours() + 7);
 
-        let currentTime = {
-            stockholm: stockholmTime.toLocaleTimeString(),
-            tokyo: tokyoTime.toLocaleTimeString()
-        }
+        stockholmTime = stockholmTime.toLocaleTimeString(),
+        tokyoTime = tokyoTime.toLocaleTimeString()
 
-        return currentTime;
+        this.setState({stockholmTime, tokyoTime})
     }
 
-    let time = setTime();
-
-    return(
-        <div>
-            <p className="align-right">Stockholm: {time.stockholm}</p>
-            <p className="align-right">Tokyo: {time.tokyo}</p>
-        </div>
-    );
+    render(){
+        return(
+            <div>
+                <p>STHLM: {this.state.stockholmTime}</p>
+                <p>TOKYO: {this.state.tokyoTime}</p>
+            </div>
+        );
+    }
 };
 
 export default CurrentTime;
