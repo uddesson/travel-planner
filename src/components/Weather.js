@@ -27,7 +27,7 @@ class Weather extends React.Component{
     render(){
         return(
             <div className="testborder">
-                { this.state.temperature}
+                { this.state.temperature} ℃
                 <br/>
                 {this.state.description }
             </div>
