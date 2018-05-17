@@ -7,7 +7,7 @@ function Header(){
     return(
         <div className="header testborder">
             <CurrentTime />
-            <Title />
+            <Title destination="TOKYO" />
             <Info />
         </div>
     );
