@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import Body from './Body';
+import Main from './Main';
 import '../App.css';
 
 class App extends Component {
@@ -11,11 +11,11 @@ class App extends Component {
           <Header /> Contains: title, time
               <Info/> Contains: temperature, currency, counter
           <Dropdown /> Contains: options for updating currency or counter - one at a time
-          <Body /> Contains: Note and other
+          <Main /> Contains: Note and other
         */}
 
         <Header />
-        <Body />
+        <Main />
       </div>
     );
   }
