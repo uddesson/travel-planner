@@ -1,10 +1,10 @@
 import React from 'react';
+import Info from './Info';
 
 function Body(){
     return(
         <div className="body testborder">
-            Body - should come below header. Another name for component maybe.
-            Post-it/reminder should be in here.
+            <Info />
         </div>
     )
 }

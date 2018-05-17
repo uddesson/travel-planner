@@ -2,17 +2,19 @@ import React from 'react';
 import CurrentTime from './CurrentTime';
 import Title from './Title';
 import CountDown from './CountDown';
-import Info from './Info';
 
-function Header(){
-    return(
-        <div className="header">
-            <CurrentTime />
-            <Title destination="Tokyo" />
-            <CountDown />
-            <Info />
-        </div>
-    );
+
+class Header extends React.Component{
+
+    render(){
+        return(
+            <div className="header">
+                <CurrentTime />
+                <Title destination="Tokyo" />
+                <CountDown/>
+            </div>
+        );
+    }
 }
 
 export default Header;
