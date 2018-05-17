@@ -1,15 +1,42 @@
-/* General */
+/*
+General
+*/
+
+#root{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+}
+
+.body{
+    padding: 10px;
+}
+
+.container{
+    background-color: #e8e8e8;
+}
+
 .grid{
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-column-gap: 10px;
+    grid-column-gap: 5px;
 }
 
 .header{
-    background-color: lightgrey;
+    padding: 10px;
+    color: #fff;
+    background-color: #2d2d2d;
 }
 
-/* Used for testing - to be removed */
+/*
+Utilities
+ */
+.align-right{
+    text-align: right;
+}
+
+/*
+Used for testing - to be removed
+*/
 .testborder{
     border: 1px solid tomato;
 }

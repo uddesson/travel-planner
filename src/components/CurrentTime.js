@@ -2,7 +2,7 @@ import React from 'react';
 
 function CurrentTime(){
     return(
-        <p>HH:MM:SS</p>
+        <p className="align-right">HH:MM:SS</p>
     );
 };
 

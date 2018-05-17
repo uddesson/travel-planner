@@ -6,7 +6,7 @@ import '../App.css';
 class App extends Component {
   render() {
     return (
-      <div className="testborder">
+      <div className="container testborder">
         { /*** DRAFT: ****
           <Header /> Contains: title, time
               <Info/> Contains: temperature, currency, counter
