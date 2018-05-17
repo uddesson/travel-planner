@@ -5,9 +5,9 @@ import CurrentTime from './CurrentTime';
 
 function Header(){
     return(
-        <div className="header testborder">
+        <div className="header">
             <CurrentTime />
-            <Title destination="TOKYO" />
+            <Title destination="Tokyo" />
             <Info />
         </div>
     );
