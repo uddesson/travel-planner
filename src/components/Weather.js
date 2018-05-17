@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Temperature extends React.Component{
+class Weather extends React.Component{
 
     state = {
         temperature: '',
@@ -35,4 +35,4 @@ class Temperature extends React.Component{
     }
 }
 
-export default Temperature;
+export default Weather;
