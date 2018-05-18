@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Hours(){
+function Hours(props){
     return(
         <div className="header__countdown-box">
-            <h2>HH</h2>
+            <h2>{props.amount}</h2>
             <p>Hours</p>
         </div>
     );

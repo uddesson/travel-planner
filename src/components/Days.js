@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Days(){
+function Days(props){
     return(
         <div className="header__countdown-box">
-            <h2>DD</h2>
-            <p>Minutes</p>
+            <h2>{props.amount}</h2>
+            <p>Days</p>
         </div>
     );
 }
