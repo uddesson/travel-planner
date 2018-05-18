@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="container testborder">
-        <Header sayHey={this.testClick}/>
+        <Header testClick={this.testClick}/>
         <Main />
       </div>
     );
