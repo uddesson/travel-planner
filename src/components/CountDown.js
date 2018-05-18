@@ -14,7 +14,7 @@ function CountDown(props){
 
         return(
             <div className="u-center">
-                <div className="grid">
+                <div className="grid--fixed">
                     <Days />
                     <Hours />
                     <Minutes />
