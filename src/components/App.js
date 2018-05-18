@@ -4,17 +4,14 @@ import Main from './Main';
 import '../App.css';
 
 class App extends Component {
+  testClick(){
+    console.log('hey')
+  }
+
   render() {
     return (
       <div className="container testborder">
-        { /*** DRAFT: ****
-          <Header /> Contains: title, time
-              <Info/> Contains: temperature, currency, counter
-          <Dropdown /> Contains: options for updating currency or counter - one at a time
-          <Main /> Contains: Note and other
-        */}
-
-        <Header />
+        <Header sayHey={this.testClick}/>
         <Main />
       </div>
     );
