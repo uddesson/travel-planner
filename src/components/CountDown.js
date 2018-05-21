@@ -16,9 +16,11 @@ class CountDown extends React.Component{
         to prevent user from seeing empty values until one minute has passed */
         this.setCountDownDate();
 
-        // Set a timeinterval at one minue, since I don't want seconds don't show
+        /* Set a timeinterval at one second even though minutes doesn't show,
+        sneaky way of displaying new countdown-date "directly", instead of waiting one minute.
+        TODO: Explore other ways of solving this */
         this.interval = setInterval(
-            () => this.setCountDownDate(), 10000
+            () => this.setCountDownDate(), 1000
         );
     }
 
@@ -26,11 +28,16 @@ class CountDown extends React.Component{
         clearInterval(this.interval);
     }
 
-    setCountDownDate =() => {
-        let defaultCountDownDate = new Date("May 5, 2019").getTime();
+    setCountDownDate = () => {
+        // Default value
+        let countDownDate = new Date("May 5, 2019").getTime();
+
+        if(!this.props.countDownSetByUser === false){
+            countDownDate = this.props.countDownSetByUser;
+        }
 
         let now = new Date().getTime();
-        let timeLeft = defaultCountDownDate - now;
+        let timeLeft = countDownDate - now;
 
         // Reference: https://www.w3schools.com/howto/howto_js_countdown.asp
         let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
