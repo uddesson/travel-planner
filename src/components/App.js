@@ -7,20 +7,25 @@ import '../App.css';
 class App extends Component {
 
   state = {
-    optionMode: false
+    optionMode: false,
+    countDownSetByUser: '',
   }
 
+  // Toggle option view. TODO: Rename this :)))
   testClick = () => {
-    console.log('hey')
-    this.setState({optionMode: true});
+    this.state.optionMode ? this.setState({optionMode: false}) : this.setState({optionMode: true});
+  }
+
+  handleChange = (newCountDownDate) => {
+    this.setState({countDownSetByUser: newCountDownDate });
   }
 
   render() {
     return (
       <div className="container testborder">
-        <Header testClick={this.testClick}/>
+        <Header testClick={this.testClick} countDownSetByUser={this.state.countDownSetByUser}/>
         <Main />
-        {this.state.optionMode && <Options />}
+        {this.state.optionMode && <Options handleChange={this.handleChange}/>}
       </div>
     );
   }
