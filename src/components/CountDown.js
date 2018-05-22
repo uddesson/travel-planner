@@ -39,9 +39,9 @@ class CountDown extends React.Component{
         let timeLeft = countDownDate - now;
 
         // Reference: https://www.w3schools.com/howto/howto_js_countdown.asp
-        // let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        // let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        // let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        let daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        let hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
 
         let days = 0;
         let hours = 0;
