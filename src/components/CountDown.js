@@ -1,7 +1,5 @@
 import React from 'react';
-import Days from './Days';
-import Hours from './Hours';
-import Minutes from './Minutes';
+import CountDownBox from './CountDownBox';
 
 class CountDown extends React.Component{
 
@@ -77,13 +75,24 @@ class CountDown extends React.Component{
         return(
             <div className="u-center">
                 <div className="grid--fixed">
-                    <Days
+                    <CountDownBox
+                        span={'Days'}
                         amount={this.state.daysLeft}
                         stylingShouldBeReset={this.state.timeUp}
                         style={timeUpStyles}
                     />
-                    <Hours amount={this.state.hoursLeft} />
-                    <Minutes amount={this.state.minutesLeft} />
+                    <CountDownBox
+                        span={'Hours'}
+                        amount={this.state.hoursLeft}
+                        stylingShouldBeReset={this.state.timeUp}
+                        style={timeUpStyles}
+                    />
+                    <CountDownBox
+                        span={'Minutes'}
+                        amount={this.state.minutesLeft}
+                        stylingShouldBeReset={this.state.timeUp}
+                        style={timeUpStyles}
+                    />
                 </div>
             </div>
         );
