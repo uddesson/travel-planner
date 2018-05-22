@@ -29,7 +29,7 @@ class CountDown extends React.Component{
 
     setCountDownDate = () => {
         // Default value
-        let countDownDate = new Date("May 5, 2019").getTime();
+        let countDownDate = new Date("April 27, 2019").getTime();
 
         if(!this.props.countDownSetByUser === false){
             countDownDate = this.props.countDownSetByUser;
