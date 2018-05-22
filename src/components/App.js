@@ -11,8 +11,7 @@ class App extends Component {
     countDownSetByUser: '',
   }
 
-  // Toggle option view. TODO: Rename this :)))
-  testClick = () => {
+  toggleOptionDisplay = () => {
     this.state.optionMode ? this.setState({optionMode: false}) : this.setState({optionMode: true});
   }
 
@@ -23,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="container testborder">
-        <Header testClick={this.testClick} countDownSetByUser={this.state.countDownSetByUser}/>
+        <Header toggleOptionDisplay={this.toggleOptionDisplay} countDownSetByUser={this.state.countDownSetByUser}/>
         <Main />
         {this.state.optionMode && <Options handleChange={this.handleChange}/>}
       </div>
