@@ -10,9 +10,9 @@ function Header(props){
     return(
         <div className="header">
             <CurrentTime/>
-            <p onClick={props.testClick}>Optionwheel</p>
+            <p onClick={props.toggleOptionDisplay}>Optionwheel</p>
             <Title destination="Tokyo" />
-            <CountDown countDownSetByUser={props.countDownSetByUser}/>
+            <CountDown toggleOptionMode={props.toggleOptionDisplay} countDownSetByUser={props.countDownSetByUser}/>
         </div>
     );
 }
@@ -22,7 +22,8 @@ Header.propTypes = {
     countDownSetByUser: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
-    ])
+    ]),
+    optionMode: PropTypes.bool
 }
 
 export default Header;

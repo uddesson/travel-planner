@@ -43,35 +43,36 @@ class CountDown extends React.Component{
         let hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         let minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
 
-        let days = 0;
-        let hours = 0;
-        let minutes = 0;
+        // TESTING:
+        // let daysLeft = 0;
+        // let hoursLeft = 0;
+        // let minutesLeft = 0;
 
+        let timeSum = daysLeft + hoursLeft + minutesLeft;
 
-        if(days + hours + minutes === 0){
-            console.log('timesuppp')
+        this.checkIfTimeIsUp(timeSum);
 
-            // Will clear the interval and stop the "ticking"
+        this.setState({daysLeft, hoursLeft, minutesLeft})
+    }
+
+    checkIfTimeIsUp(time){
+        /* Check if the sum of time is 0. Also check if state.daysLeft is an empty string,
+        (that will also be the case for hours and minutes), to avoid showing the
+        timeUp-styling when you intially start the app */
+        if(time === 0 && this.state.daysLeft !== ''){
+            // Will clear the interval and stop the countdown
             clearInterval(this.interval)
 
-            /* TODO: Trigger the option-component and show some text,
-            setting optionMode (in App) to true */
-            this.displayTimeUp();
+            this.setState({timeUp: true});
         }
-
-        this.setState({daysLeft: days, hoursLeft: hours, minutesLeft: minutes})
     }
 
-    displayTimeUp(){
-        this.setState({timeUp: true});
-    }
 
     render(){
         const timeUpStyles = {
             backgroundColor: "rgba(189, 39, 74, 0.4)",
         }
 
-        // TODO: Maybe make Days, Hours and Minutes to one reuasable component??
         return(
             <div className="u-center">
                 <div className="grid--fixed">
@@ -94,6 +95,14 @@ class CountDown extends React.Component{
                         style={timeUpStyles}
                     />
                 </div>
+                {   /* If time is up, show a link to set new date (toggles optionMode) */
+                    this.state.timeUp &&
+                    <div className="u-margin-top">
+                        <a href="#options" onClick={this.props.toggleOptionMode}>
+                            Set a new date
+                        </a>
+                    </div>
+                }
             </div>
         );
     }
