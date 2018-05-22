@@ -25,7 +25,7 @@ class Options extends React.Component{
 
     render(){
         return(
-            <div>
+            <div id="options">
                 <h3>Options</h3>
                 <form onSubmit={this.handleChange}>
                     <label htmlFor="date">Update departure date:</label>
