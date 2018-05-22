@@ -2,12 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Days(props){
-    return(
-        <div className="header__countdown-box">
-            <h2>{props.amount}</h2>
-            <p>Days</p>
-        </div>
-    );
+    if(props.stylingShouldBeReset === true){
+        return(
+            <div className="header__countdown-box" style={props.style}>
+                <h2>{props.amount}</h2>
+                <p>Days</p>
+            </div>
+            )
+    } else {
+        return(
+            <div className="header__countdown-box">
+                <h2>{props.amount}</h2>
+                <p>Days</p>
+            </div>
+        );
+    }
 }
 
 Days.propTypes = {
@@ -16,7 +25,11 @@ Days.propTypes = {
     amount: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
-    ])
+    ]),
+    style: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+    ]),
 }
 
 export default Days;

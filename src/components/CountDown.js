@@ -8,7 +8,8 @@ class CountDown extends React.Component{
     state = {
         daysLeft: '',
         hoursLeft: '',
-        minutesLeft: ''
+        minutesLeft: '',
+        timeUp: false
     }
 
     componentDidMount(){
@@ -40,24 +41,52 @@ class CountDown extends React.Component{
         let timeLeft = countDownDate - now;
 
         // Reference: https://www.w3schools.com/howto/howto_js_countdown.asp
-        let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        // let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        // let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        // let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+
+        let days = 0;
+        let hours = 0;
+        let minutes = 0;
+
+
+        if(days + hours + minutes === 0){
+            console.log('timesuppp')
+
+            // Will clear the interval and stop the "ticking"
+            clearInterval(this.interval)
+
+            /* TODO: Trigger the option-component and show some text,
+            setting optionMode (in App) to true */
+            this.displayTimeUp();
+        }
 
         this.setState({daysLeft: days, hoursLeft: hours, minutesLeft: minutes})
     }
 
+    displayTimeUp(){
+        this.setState({timeUp: true});
+    }
+
     render(){
+        const timeUpStyles = {
+            backgroundColor: "rgba(189, 39, 74, 0.4)",
+        }
+
+        // TODO: Maybe make Days, Hours and Minutes to one reuasable component??
         return(
             <div className="u-center">
                 <div className="grid--fixed">
-                    <Days amount={this.state.daysLeft}/>
-                    <Hours amount={this.state.hoursLeft}/>
-                    <Minutes amount={this.state.minutesLeft}/>
+                    <Days
+                        amount={this.state.daysLeft}
+                        stylingShouldBeReset={this.state.timeUp}
+                        style={timeUpStyles}
+                    />
+                    <Hours amount={this.state.hoursLeft} />
+                    <Minutes amount={this.state.minutesLeft} />
                 </div>
             </div>
         );
-
     }
 }
 
