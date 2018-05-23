@@ -3,12 +3,15 @@ import Weather from './Weather';
 import Currency from './Currency';
 import Note from './Note';
 
-function Main(){
+function Main(props){
     return(
         <div className="grid testborder">
             <Weather />
             <Currency />
-            <Note />
+            <Note
+                isEmpty={!props.noteSetByUser ? true : false}
+                content={props.noteSetByUser}
+                toggleOptionDisplay={props.toggleOptionDisplay}/>
         </div>
     );
 }
