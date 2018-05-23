@@ -10,7 +10,7 @@ function Header(props){
     return(
         <div className="header">
             <CurrentTime/>
-            <p onClick={props.toggleOptionDisplay}>Optionwheel</p>
+            <a href="#options" onClick={props.toggleOptionDisplay}>Optionwheel</a>
             <Title destination="Tokyo" />
             <CountDown toggleOptionMode={props.toggleOptionDisplay} countDownSetByUser={props.countDownSetByUser}/>
         </div>
