@@ -114,6 +114,9 @@ Utilities
     margin-top: 15px;
 }
 
+.u-text-bold{
+    font-weight: bold;
+}
 
 .u-fadeIn{
     animation: fadeIn 1.2s;
