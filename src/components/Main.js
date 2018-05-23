@@ -3,7 +3,7 @@ import Weather from './Weather';
 import Currency from './Currency';
 import Note from './Note';
 
-function Info(){
+function Main(){
     return(
         <div className="grid testborder">
             <Weather />
@@ -13,4 +13,4 @@ function Info(){
     );
 }
 
-export default Info;
+export default Main;
