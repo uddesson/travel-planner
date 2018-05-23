@@ -49,7 +49,7 @@ class Currency extends React.Component{
         let shouldFade = this.state.fade ? 'u-fadeIn' : '';
 
         return(
-            <div className="testborder">
+            <div>
                 <h3>Currency:</h3>
                 <SingleParagraph content={'1 Euro ='}/>
 

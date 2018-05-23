@@ -3,7 +3,7 @@ import React from 'react';
 function Note(props){
     if(props.isEmpty){
         return(
-            <div className="testborder">
+            <div>
                 <h3>Note</h3>
                 <a href="#options" onClick={props.toggleOptionDisplay}>
                     Add a reminder.
@@ -12,7 +12,7 @@ function Note(props){
         )
     } else {
         return(
-            <div className="testborder">
+            <div>
                 <h3>Note</h3>
                 {props.content}
             </div>

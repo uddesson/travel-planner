@@ -5,7 +5,7 @@ import Note from './Note';
 
 function Main(props){
     return(
-        <div className="grid testborder">
+        <div className="main grid">
             <Weather />
             <Currency />
             <Note

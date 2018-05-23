@@ -48,7 +48,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container testborder">
+      <div className="container">
         <Header
           toggleOptionDisplay={this.toggleOptionDisplay}
           countDownSetByUser={this.state.countDownSetByUser}
