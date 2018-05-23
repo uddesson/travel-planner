@@ -114,6 +114,28 @@ Utilities
     margin-top: 15px;
 }
 
+
+.u-fadeIn{
+    animation: fadeIn 1.2s;
+}
+
+/*
+Animations
+*/
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+        color: green;
+    }
+    100%{
+        opacity: 1;
+        color: #000;
+        }
+}
+
 /****************************
 **** Tablet and desktop *****
 *****************************/
