@@ -10,11 +10,11 @@ class Options extends React.Component{
     }
 
     componentDidMount(){
-        this.convertDate(this.props.countDownSetByUser)
+        this.formatDate(this.props.countDownSetByUser)
     }
 
-    convertDate = (formattedDate) => {
-        let date = new Date(formattedDate)
+    formatDate = (newDate) => {
+        let date = new Date(newDate)
 
         let month = '' + (date.getMonth() + 1);
         let day = '' + date.getDate();
@@ -29,7 +29,6 @@ class Options extends React.Component{
 
         date = year + '-' + month + '-' + day;
 
-        console.log(date)
         this.setState({date})
     }
 
@@ -45,8 +44,8 @@ class Options extends React.Component{
 
         // Don't accept dates that have passed
         if(inputDate > now){
-            let formattedDate = new Date(inputDate).getTime();
-            this.setState({ formattedDate });
+            let newDate = new Date(inputDate).getTime();
+            this.setState({ formattedDate: newDate });
         }
     }
 
