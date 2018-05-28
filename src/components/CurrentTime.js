@@ -24,8 +24,8 @@ class CurrentTime extends React.Component{
         // Manually set the time difference
         tokyoTime.setHours(stockholmTime.getHours() + 7);
 
-        stockholmTime = stockholmTime.toLocaleTimeString(),
-        tokyoTime = tokyoTime.toLocaleTimeString()
+        stockholmTime = stockholmTime.toLocaleTimeString();
+        tokyoTime = tokyoTime.toLocaleTimeString();
 
         this.setState({stockholmTime, tokyoTime})
     }
