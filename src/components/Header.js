@@ -12,17 +12,16 @@ function Header(props){
             <CurrentTime/>
             <a href="#options" onClick={props.toggleOptionDisplay}>Optionwheel</a>
             <Title destination="Tokyo" />
-            <CountDown toggleOptionMode={props.toggleOptionDisplay} countDownSetByUser={props.countDownSetByUser}/>
+            <CountDown
+                toggleOptionMode={props.toggleOptionDisplay}
+                countDownSetByUser={props.countDownSetByUser}/>
         </div>
     );
 }
 
 Header.propTypes = {
     testClick: PropTypes.func,
-    countDownSetByUser: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-    ]),
+    countDownSetByUser: PropTypes.number,
     optionMode: PropTypes.bool
 }
 
