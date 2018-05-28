@@ -1,5 +1,6 @@
 import React from 'react';
 import CountDownBox from './CountDownBox';
+import PropTypes from 'prop-types';
 
 class CountDown extends React.Component{
 
@@ -28,12 +29,7 @@ class CountDown extends React.Component{
     }
 
     setCountDownDate = () => {
-        // Default value
-        let countDownDate = new Date("April 27, 2019").getTime();
-
-        if(!this.props.countDownSetByUser === false){
-            countDownDate = this.props.countDownSetByUser;
-        }
+        let countDownDate = this.props.countDownSetByUser;
 
         let now = new Date().getTime();
         let timeLeft = countDownDate - now;
@@ -43,15 +39,9 @@ class CountDown extends React.Component{
         let hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         let minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
 
-        // TESTING:
-        // let daysLeft = 0;
-        // let hoursLeft = 0;
-        // let minutesLeft = 0;
-
         let timeSum = daysLeft + hoursLeft + minutesLeft;
 
         this.checkIfTimeIsUp(timeSum);
-
         this.setState({daysLeft, hoursLeft, minutesLeft})
     }
 
@@ -106,6 +96,11 @@ class CountDown extends React.Component{
             </div>
         );
     }
+}
+
+CountDown.propTypes = {
+    toggleOptionMode: PropTypes.func,
+    countDownSetByUser: PropTypes.number
 }
 
 export default CountDown;

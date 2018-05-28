@@ -34,12 +34,12 @@ class App extends Component {
   }
 
   handleChange = (countDown, note) => {
-    // Reset old values with new ones in state
-    this.setState({countDownSetByUser: countDown, noteSetByUser: note});
+      this.setState({countDownSetByUser: countDown, noteSetByUser: note});
+      this.storeLocally(countDown, note);
+    }
 
-    /* Store them locally - next time user loads page
-    the state will instead be set to the localStorage */
-    this.storeLocally(countDown, note);
+  componentDidUpdate(){
+    console.log('component did update');
   }
 
   toggleOptionDisplay = () => {
@@ -58,7 +58,13 @@ class App extends Component {
           noteSetByUser={this.state.noteSetByUser}
           handleChange={this.handleChange}
         />
-        {this.state.optionMode && <Options handleChange={this.handleChange}/>}
+        {this.state.optionMode &&
+          <Options
+            handleChange={this.handleChange}
+            noteSetByUser={this.state.noteSetByUser}
+            countDownSetByUser={this.state.countDownSetByUser}
+          />
+        }
       </div>
     );
   }
