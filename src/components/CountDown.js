@@ -28,8 +28,16 @@ class CountDown extends React.Component{
         clearInterval(this.interval);
     }
 
+    componentDidUpdate(){
+       // TODO: Set timeUp to false when a new date is set from 0
+    }
+
     setCountDownDate = () => {
         let countDownDate = this.props.countDownSetByUser;
+
+        if(!countDownDate){
+            countDownDate = new Date().getTime();
+        }
 
         let now = new Date().getTime();
         let timeLeft = countDownDate - now;
