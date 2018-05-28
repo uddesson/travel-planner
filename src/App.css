@@ -46,7 +46,7 @@ a:hover{
 }
 
 .container{
-    background-color: #e8e8e8;
+    background-color: #d5d5d5;
 }
 
 
@@ -61,7 +61,7 @@ a:hover{
 	-ms-grid-rows: auto auto;
 	grid-template-rows: auto auto auto;
 	-ms-grid-columns: (minmax(300px, 1fr))(auto-fill);
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .grid>div{
@@ -73,6 +73,7 @@ a:hover{
 .header{
     padding: 10px 10px 30px 10px;
     color: #ededed;
+    background-color: #2d2d2d;
     background-image: url('./images/header-background-one.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -89,6 +90,10 @@ a:hover{
 .header__countdown-box{
     background-color: rgba(76, 103, 90, 0.4);
     border-radius: 4px;
+}
+
+.options{
+    padding: 20px 20px 50px 20px;
 }
 
 /*
@@ -140,7 +145,7 @@ Animations
         font-size: 3.6em;
     }
 
-    .header{
+    .header, .options, .main{
         padding: 40px;
     }
 
