@@ -36,10 +36,6 @@ class App extends Component {
   handleChange = (countDown, note) => {
       this.setState({countDownSetByUser: countDown, noteSetByUser: note});
       this.storeLocally(countDown, note);
-    }
-
-  componentDidUpdate(){
-    console.log('component did update');
   }
 
   toggleOptionDisplay = () => {
