@@ -41,6 +41,10 @@ a:hover{
     color: #969696;
 }
 
+.grid>div>a{
+    color: #497b5d;
+}
+
 .main{
     padding: 10px;
 }
