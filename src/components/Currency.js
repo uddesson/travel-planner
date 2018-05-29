@@ -1,11 +1,13 @@
 import React from 'react';
 import SingleParagraph from './SingleParagraph';
+import TextInput from './TextInput';
 
 class Currency extends React.Component{
 
     state = {
-        sek: '',
         jpy: '',
+        userInput: '',
+        converted: 0,
         timeStamp: {
             date: '',
             time: ''
@@ -20,29 +22,41 @@ class Currency extends React.Component{
     fetchCurrency = () => {
         const key = '73c2dc0085c6832db729eaacfb4c5c9e';
 
-        fetch(`http://data.fixer.io/api/latest?access_key=${key}&symbols=SEK,JPY`)
+        fetch(`http://data.fixer.io/api/latest?access_key=${key}&symbols=JPY`)
             .then(response => response.json())
             .then((currencyData) => {
-                /* I convert the numbers to strings with only two decimals,
-                using toFixed() */
-                let sek = currencyData.rates.SEK.toFixed(2);
-                let jpy = currencyData.rates.JPY.toFixed(2);
 
-                let time = new Date(currencyData.timestamp*1000).toLocaleTimeString();
-                let date = currencyData.date
+                let jpy = currencyData.rates.JPY;
+
+                let time = new Date().toLocaleTimeString();
+                let date = new Date().toLocaleDateString();
 
                 if(currencyData){
-                    this.setState({sek, jpy, timeStamp:{date, time}});
+                    this.setState({jpy, timeStamp:{date, time}});
                 }
             })
-            .finally(() => {this.setState({fade:true})})
+            .finally(() => {
+                this.setState({fade:true})
+            })
     }
-
 
     refresh = (event) => {
         event.preventDefault();
+
+        // Fetch latest currency rate from API
         this.fetchCurrency();
         this.setState({fade: false})
+    }
+
+    convertUsersInput = (event) => {
+        event.preventDefault();
+        let userInput = event.target.value;
+        this.setState({userInput})
+
+        const calc = userInput * this.state.jpy;
+        let converted = Math.round(calc);
+
+        this.setState({converted})
     }
 
     render(){
@@ -50,33 +64,32 @@ class Currency extends React.Component{
 
         return(
             <div>
-                <h3>Currency:</h3>
-                <SingleParagraph content={'1 Euro ='}/>
+                <h3>Currency Exchange:</h3>
+
+                <TextInput
+                    htmlFor={"Currency"}
+                    label={" EURO"}
+                    value={this.state.userInput}
+                    onChange={this.convertUsersInput}
+                    placeholder="0"
+                />
 
                 <SingleParagraph
-                    className={shouldFade}
-                    content={this.state.sek + ' SEK'}
-                />
-                <SingleParagraph
-                    className={shouldFade}
-                    content={this.state.jpy + ' JPY'}
+                    content={this.state.converted + ' JPY' || this.state.jpy + ' JPY'}
                 />
                 <SingleParagraph
                     className="u-text-bold"
-                    content="Last updated:" />
+                    content="Currency exhange rate last updated:"
+                />
+
+                <SingleParagraph
+                    className={shouldFade}
+                    content={this.state.timeStamp.date + ' at ' + this.state.timeStamp.time}
+                />
 
                 {/* TODO: Make this to a icon-btn component */}
                 <button onClick={this.refresh}>(Refresh)</button>
 
-                <SingleParagraph
-                    className={shouldFade}
-                    content={this.state.timeStamp.time}
-                />
-
-                 <SingleParagraph
-                    className={shouldFade}
-                    content={this.state.timeStamp.date}
-                />
             </div>
         );
     }
