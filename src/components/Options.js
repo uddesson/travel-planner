@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TextInput from './TextInput';
 
 class Options extends React.Component{
 
@@ -12,7 +13,7 @@ class Options extends React.Component{
     componentDidMount(){
         /* Format and the date that shows as input date-value,
         but only if there is a locally stored date to format */
-        if(this.state.countDownSetByUser !== undefined){
+        if(this.props.countDownSetByUser){
             this.formatAndSetDate(this.props.countDownSetByUser)
         }
     }
@@ -70,29 +71,26 @@ class Options extends React.Component{
         return(
             <div id="options" className="options">
                 <h3>Options</h3>
+
                 <form onSubmit={this.handleChange}>
-                    <label htmlFor="date">Update departure date:</label>
-                    <br/>
-                    <input
-                        type="text"
-                        name="date"
-                        onChange={this.validateDateInput}
+                    <TextInput
+                        htmlFor={"Date"}
+                        label={"Update departure date:"}
                         value={this.state.date}
-                        placeholder="YYYY-MM-DD">
-                    </input>
-                <input type="submit"></input>
+                        onChange={this.validateDateInput}
+                        placeholder="YYYY-MM-DD"
+                    />
+                    <input type="submit"></input>
                 </form>
-                <br/>
+
                 <form onSubmit={this.handleChange}>
-                <label htmlFor="note">Current note:</label>
-                    <br/>
-                    <input
-                        type="text"
-                        name="note"
-                        onChange={this.validateNoteInput}
-                        value={this.state.note}
-                        placeholder="Min 5 chars">
-                    </input>
+                <TextInput
+                    htmlFor={"Note"}
+                    label={"Current reminder:"}
+                    onChange={this.validateNoteInput}
+                    value={this.state.note || ''}
+                    placeholder="Min 5 chars"
+                />
                 <input type="submit"></input>
                 </form>
             </div>
