@@ -53,11 +53,8 @@ class CountDown extends React.Component{
         this.setState({daysLeft, hoursLeft, minutesLeft})
     }
 
-    checkIfTimeIsUp(time){
-        /* Check if the sum of time is 0. Also check if state.daysLeft is an empty string,
-        (that will also be the case for hours and minutes), to avoid showing the
-        timeUp-styling when you intially start the app */
-        if(time === 0 && this.state.daysLeft !== ''){
+    checkIfTimeIsUp(timeSum){
+        if(timeSum === 0){
             // Will clear the interval and stop the countdown
             clearInterval(this.interval)
 
