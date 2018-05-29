@@ -3,7 +3,8 @@
 Created with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## TODO
-* Currently the application assumes you're traveling to Japan. Because why wouldn't you. I want to add the option to set a different country, and update all the components.
+
+* Currently the application assumes you're traveling to Japan. (Because why wouldn't you.) I want to add the option to set a different country, and update all the components thereafter.
 
 ## Resources
 
