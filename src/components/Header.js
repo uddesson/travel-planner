@@ -11,7 +11,7 @@ function Header(props){
         <div className="header">
             <CurrentTime/>
             <a href="#options" onClick={props.toggleOptionDisplay}>Optionwheel</a>
-            <Title destination="Tokyo" />
+            <Title destination="Japan" />
             <CountDown
                 toggleOptionMode={props.toggleOptionDisplay}
                 countDownSetByUser={props.countDownSetByUser}/>

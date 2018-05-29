@@ -4,7 +4,7 @@ class CurrentTime extends React.Component{
 
     state = {
         stockholmTime: '',
-        tokyoTime: ''
+        japanTime: ''
     }
 
     componentDidMount(){
@@ -19,23 +19,23 @@ class CurrentTime extends React.Component{
 
     setTime =() => {
         let stockholmTime = new Date ();
-        let tokyoTime = new Date();
+        let japanTime = new Date();
 
         // Manually set the time difference
-        tokyoTime.setHours(stockholmTime.getHours() + 7);
+        japanTime.setHours(stockholmTime.getHours() + 7);
 
         stockholmTime = stockholmTime.toLocaleTimeString();
-        tokyoTime = tokyoTime.toLocaleTimeString();
+        japanTime = japanTime.toLocaleTimeString();
 
-        this.setState({stockholmTime, tokyoTime})
+        this.setState({stockholmTime, japanTime})
     }
 
     render(){
         return(
-            <div className="header__current-time">
-                <p>STHLM: {this.state.stockholmTime}</p>
-                <p>TOKYO: {this.state.tokyoTime}</p>
-            </div>
+            <p className="header__current-time">
+                SWEDEN: {this.state.stockholmTime} /
+                JAPAN: {this.state.japanTime}
+            </p>
         );
     }
 };
