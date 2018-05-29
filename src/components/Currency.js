@@ -54,7 +54,7 @@ class Currency extends React.Component{
         this.setState({userInput})
 
         const calc = userInput * this.state.jpy;
-        let converted = Math.round(calc);
+        let converted = calc.toFixed(2);
 
         this.setState({converted})
     }
