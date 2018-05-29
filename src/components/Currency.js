@@ -75,8 +75,9 @@ class Currency extends React.Component{
                 />
 
                 <SingleParagraph
-                    content={this.state.converted + ' JPY' || this.state.jpy + ' JPY'}
+                    content={this.state.converted + ' JPY'}
                 />
+
                 <SingleParagraph
                     className="u-text-bold"
                     content="Currency exhange rate last updated:"
