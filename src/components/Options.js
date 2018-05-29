@@ -13,11 +13,11 @@ class Options extends React.Component{
         /* Format and the date that shows as input date-value,
         but only if there is a locally stored date to format */
         if(this.state.countDownSetByUser !== undefined){
-            this.formatDate(this.props.countDownSetByUser)
+            this.formatAndSetDate(this.props.countDownSetByUser)
         }
     }
 
-    formatDate = (newDate) => {
+    formatAndSetDate = (newDate) => {
 
         let date = new Date(newDate)
 
