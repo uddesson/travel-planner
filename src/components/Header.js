@@ -9,8 +9,15 @@ function Header(props){
 
     return(
         <div className="header">
-            <CurrentTime/>
-            <a href="#options" onClick={props.toggleOptionDisplay}>Optionwheel</a>
+            <div className="grid">
+                <CurrentTime/>
+                <a
+                    href="#options"
+                    className="u-right"
+                    onClick={props.toggleOptionDisplay}>
+                    Optionwheel
+                </a>
+            </div>
             <Title destination="Japan" />
             <CountDown
                 toggleOptionMode={props.toggleOptionDisplay}
