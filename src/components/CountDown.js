@@ -14,13 +14,13 @@ class CountDown extends React.Component{
     componentDidMount(){
         /* Call setCountDownDate initally,
         to prevent user from seeing empty values until one minute has passed */
-        this.setCountDownDate();
+        this.setCountDown();
 
         /* Set a timeinterval at one second even though minutes doesn't show,
         sneaky way of displaying new countdown-date "directly", instead of waiting one minute.
         TODO: Explore other ways of solving this */
         this.interval = setInterval(
-            () => this.setCountDownDate(), 1000
+            () => this.setCountDown(), 1000
         );
     }
 
@@ -32,7 +32,7 @@ class CountDown extends React.Component{
        // TODO: Set timeUp to false when a new date is set from 0
     }
 
-    setCountDownDate = () => {
+    setCountDown = () => {
         let countDownDate = this.props.countDownSetByUser;
 
         if(!countDownDate){
