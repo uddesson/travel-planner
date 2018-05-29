@@ -18,50 +18,54 @@ class CountDown extends React.Component{
 
         /* Set a timeinterval at one second even though minutes doesn't show,
         sneaky way of displaying new countdown-date "directly", instead of waiting one minute.
+
         TODO: Explore other ways of solving this */
         this.interval = setInterval(
             () => this.setCountDown(), 1000
         );
     }
 
-    componentWillUnmount(){
-        clearInterval(this.interval);
-    }
-
-    componentDidUpdate(){
-       // TODO: Set timeUp to false when a new date is set from 0
+    componentWillReceiveProps(){
+        /* If timeUp isn't already set to false, it must be when new props are recived,
+        because that means the user has set a new date and styling should be different */
+        this.setState({timeUp: false})
     }
 
     setCountDown = () => {
         let countDownDate = this.props.countDownSetByUser;
 
-        if(!countDownDate){
-            countDownDate = new Date().getTime();
-        }
-
         let now = new Date().getTime();
         let timeLeft = countDownDate - now;
 
-        // Reference: https://www.w3schools.com/howto/howto_js_countdown.asp
         let daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        daysLeft = this.resetIfUnvalid(daysLeft);
+
         let hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        hoursLeft = this.resetIfUnvalid(hoursLeft);
+
         let minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        minutesLeft = this.resetIfUnvalid(minutesLeft);
 
         let timeSum = daysLeft + hoursLeft + minutesLeft;
+        this.setState({daysLeft, hoursLeft, minutesLeft})
 
         this.checkIfTimeIsUp(timeSum);
-        this.setState({daysLeft, hoursLeft, minutesLeft})
+    }
+
+    resetIfUnvalid = (value) => {
+        /* Handles negative date-values set by default if no countdown-date
+        has been set by user. Instead returns a 0 to the countdown-components */
+        if(value <= 0){
+            value = 0;
+        }
+        return value;
     }
 
     checkIfTimeIsUp(timeSum){
         if(timeSum === 0){
-            // Will clear the interval and stop the countdown
-            clearInterval(this.interval)
-
             this.setState({timeUp: true});
         }
     }
-
 
     render(){
         const timeUpStyles = {

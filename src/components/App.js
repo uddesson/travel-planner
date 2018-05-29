@@ -29,7 +29,7 @@ class App extends Component {
 
   state = {
     optionMode: false,
-    countDownSetByUser: this.storage.countdown,
+    countDownSetByUser: this.storage.countdown || 0,
     noteSetByUser: this.storage.note
   }
 
