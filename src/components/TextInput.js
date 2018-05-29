@@ -5,6 +5,10 @@ function TextInput(props){
 
     return(
         <React.Fragment>
+               <label htmlFor={props.htmlFor}>
+                {props.label}
+            </label>
+            <br/>
             <input
                 type="text"
                 value={props.value}
@@ -12,9 +16,6 @@ function TextInput(props){
                 placeholder={props.placeholder}
             >
             </input>
-            <label htmlFor={props.htmlFor}>
-                {props.label}
-            </label>
         </React.Fragment>
     );
 }
