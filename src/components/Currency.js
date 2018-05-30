@@ -12,8 +12,11 @@ class Currency extends React.Component{
             date: "",
             time: ""
         },
-        fade: true
+        fade: true,
+        errorCaught: false
     }
+
+    errorMessage = "";
 
     componentDidMount(){
         this.fetchCurrency();
@@ -35,32 +38,46 @@ class Currency extends React.Component{
                     this.setState({ jpy, timeStamp:{date, time}} );
                 }
             })
+            .catch((error) => {
+                this.errorMessage = "Sorry, no data currently available.";
+                this.setState({ errorCaught: true });
+            })
             .finally(() => {
-                this.setState({ fade:true })
+                this.setState({ fade: true })
             })
     }
 
     refresh = (event) => {
         event.preventDefault();
 
+        /* Set fade-animation to false so the class triggering it
+        can be added again, making elements fade in on refresh */
+        this.setState({ fade: false })
+
         // Fetch latest currency rate from API
         this.fetchCurrency();
-        this.setState({ fade: false })
     }
 
     convertUsersInput = (event) => {
         event.preventDefault();
         let userInput = event.target.value;
-        this.setState({ userInput })
 
-        const calc = userInput * this.state.jpy;
-        let converted = calc.toFixed(2);
+        // Don't convert user input when error is caught
+        if(this.state.errorCaught){
+            this.setState({ userInput: "" })
+        } else {
+            this.setState({ userInput })
 
-        this.setState({ converted })
+            const calc = userInput * this.state.jpy;
+            let converted = calc.toFixed(2);
+
+            this.setState({ converted })
+        }
     }
 
     render(){
-        let shouldFade = this.state.fade ? "u-fadeIn" : "";
+        const shouldFade = this.state.fade ? " u-fadeIn " : "";
+        const errorStyles = this.state.errorCaught ? " u-error " : "";
 
         return(
             <div>
@@ -71,7 +88,7 @@ class Currency extends React.Component{
                     label={ " EURO" }
                     value={ this.state.userInput }
                     onChange={ this.convertUsersInput }
-                    placeholder="0"
+                    placeholder="Enter value"
                 />
 
                 <SingleParagraph
@@ -84,8 +101,9 @@ class Currency extends React.Component{
                 />
 
                 <SingleParagraph
-                    className={ shouldFade }
-                    content={ this.state.timeStamp.date + " at " + this.state.timeStamp.time }
+                    className={shouldFade + errorStyles}
+                    content={this.state.timeStamp.date + this.state.timeStamp.time
+                    || this.errorMessage}
                 />
 
                 {/* TODO: Make this to a icon-btn component */}

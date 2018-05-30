@@ -4,8 +4,11 @@ class Weather extends React.Component{
 
     state = {
         temperature: "",
-        description: ""
-      }
+        description: "",
+        errorCaught: false
+    }
+
+    errorMessage = "";
 
     componentDidMount(){
         this.fetchWeather();
@@ -22,14 +25,28 @@ class Weather extends React.Component{
 
                 this.setState({ temperature: averageTemp, description: weatherDescription })
             })
+            .catch(() => {
+                this.errorMessage = "Sorry, no weather-data currently available.";
+                this.setState({ errorCaught: true })
+            })
     }
 
     render(){
+
         return(
             <div>
-                { this.state.temperature } ℃
-                <br/>
-                { this.state.description }
+                {!this.state.errorCaught &&
+                    <React.Fragment>
+                        { this.state.temperature } ℃
+                        <br/>
+                        { this.state.description }
+                    </React.Fragment>
+                }
+                {this.state.errorCaught &&
+                    <React.Fragment>
+                        <p className="u-error">{this.errorMessage}</p>
+                    </React.Fragment>
+                }
             </div>
         );
     }
