@@ -6,12 +6,13 @@ import "../App.css";
 
 class App extends Component {
 
+  /* Countdown and note are set in Options, but stored in App
+  to then be sent down to other components that display the values */
   storeLocally = (countdown, note) => {
     let storage = {
       countdown,
       note
     }
-
     localStorage.setItem("storage", JSON.stringify(storage))
   }
 
@@ -25,6 +26,8 @@ class App extends Component {
     }
   }
 
+  /* Will contain our locally stored object,
+  with values that we now can apply to App's state */
   storage = this.getStoredLocally();
 
   state = {
@@ -33,16 +36,16 @@ class App extends Component {
     noteSetByUser: this.storage.note
   }
 
-  // Recives changes from the Options-component
-  handleOptionChange = (countDown, note) => {
-      this.setState({ countDownSetByUser: countDown, noteSetByUser: note });
-      this.storeLocally(countDown, note);
-  }
-
   toggleOptionDisplay = () => {
     this.state.optionMode
     ? this.setState({ optionMode: false })
     : this.setState({ optionMode: true });
+  }
+
+  // This is where we recive and handle changes from the Options-component
+  handleOptionChange = (countDownSetByUser, noteSetByUser) => {
+      this.setState({ countDownSetByUser, noteSetByUser });
+      this.storeLocally(countDownSetByUser, noteSetByUser);
   }
 
   render() {
@@ -58,7 +61,7 @@ class App extends Component {
           handleOptionChange={ this.handleOptionChange }
         />
         {this.state.optionMode &&
-          <Options
+          <Options //Appears at bottom of the page when toggled
             handleOptionChange={ this.handleOptionChange }
             noteSetByUser={ this.state.noteSetByUser }
             countDownSetByUser={ this.state.countDownSetByUser }
