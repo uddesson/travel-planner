@@ -1,13 +1,13 @@
-import React from 'react';
-import CountDownBox from './CountDownBox';
-import PropTypes from 'prop-types';
+import React from "react";
+import CountDownBox from "./CountDownBox";
+import PropTypes from "prop-types";
 
 class CountDown extends React.Component{
 
     state = {
-        daysLeft: '',
-        hoursLeft: '',
-        minutesLeft: '',
+        daysLeft: "",
+        hoursLeft: "",
+        minutesLeft: "",
         timeUp: false
     }
 
@@ -26,9 +26,9 @@ class CountDown extends React.Component{
     }
 
     componentWillReceiveProps(){
-        /* If timeUp isn't already set to false, it must be when new props are recived,
+        /* If timeUp isn"t already set to false, it must be when new props are recived,
         because that means the user has set a new date and styling should be different */
-        this.setState({timeUp: false})
+        this.setState({ timeUp: false })
     }
 
     setCountDown = () => {
@@ -47,7 +47,7 @@ class CountDown extends React.Component{
         minutesLeft = this.resetIfUnvalid(minutesLeft);
 
         let timeSum = daysLeft + hoursLeft + minutesLeft;
-        this.setState({daysLeft, hoursLeft, minutesLeft})
+        this.setState({ daysLeft, hoursLeft, minutesLeft })
 
         this.checkIfTimeIsUp(timeSum);
     }
@@ -63,7 +63,7 @@ class CountDown extends React.Component{
 
     checkIfTimeIsUp(timeSum){
         if(timeSum === 0){
-            this.setState({timeUp: true});
+            this.setState({ timeUp: true });
         }
     }
 
@@ -76,28 +76,28 @@ class CountDown extends React.Component{
             <div className="u-center">
                 <div className="grid--fixed">
                     <CountDownBox
-                        span={'Days'}
-                        amount={this.state.daysLeft}
-                        stylingShouldBeReset={this.state.timeUp}
-                        style={timeUpStyles}
+                        span={ "Days" }
+                        amount={ this.state.daysLeft }
+                        stylingShouldBeReset={ this.state.timeUp }
+                        style={ timeUpStyles }
                     />
                     <CountDownBox
-                        span={'Hours'}
-                        amount={this.state.hoursLeft}
-                        stylingShouldBeReset={this.state.timeUp}
-                        style={timeUpStyles}
+                        span={ "Hours" }
+                        amount={ this.state.hoursLeft }
+                        stylingShouldBeReset={ this.state.timeUp }
+                        style={ timeUpStyles }
                     />
                     <CountDownBox
-                        span={'Minutes'}
-                        amount={this.state.minutesLeft}
-                        stylingShouldBeReset={this.state.timeUp}
-                        style={timeUpStyles}
+                        span={ "Minutes" }
+                        amount={ this.state.minutesLeft }
+                        stylingShouldBeReset={ this.state.timeUp }
+                        style={ timeUpStyles }
                     />
                 </div>
                 {   /* If time is up, show a link to set new date (toggles optionMode) */
                     this.state.timeUp &&
                     <div className="u-margin-top">
-                        <a href="#options" onClick={this.props.toggleOptionMode}>
+                        <a href="#options" onClick={ this.props.toggleOptionMode }>
                             Set a new date
                         </a>
                     </div>

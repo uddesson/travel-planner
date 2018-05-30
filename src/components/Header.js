@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import CurrentTime from './CurrentTime';
-import Title from './Title';
-import CountDown from './CountDown';
+import React from "react";
+import PropTypes from "prop-types";
+import CurrentTime from "./CurrentTime";
+import Title from "./Title";
+import CountDown from "./CountDown";
 
 
 function Header(props){
@@ -14,14 +14,14 @@ function Header(props){
                 <a
                     href="#options"
                     className="u-right"
-                    onClick={props.toggleOptionDisplay}>
+                    onClick={ props.toggleOptionDisplay }>
                     Optionwheel
                 </a>
             </div>
             <Title destination="Japan" />
             <CountDown
-                toggleOptionMode={props.toggleOptionDisplay}
-                countDownSetByUser={props.countDownSetByUser}/>
+                toggleOptionMode={ props.toggleOptionDisplay }
+                countDownSetByUser={ props.countDownSetByUser }/>
         </div>
     );
 }

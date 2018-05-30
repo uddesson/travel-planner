@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 function Note(props){
     if(props.isEmpty){
         return(
             <div>
                 <h3>Note</h3>
-                <a href="#options" onClick={props.toggleOptionDisplay}>
+                <a href="#options" onClick={ props.toggleOptionDisplay }>
                     Add a reminder.
                 </a>
             </div>
@@ -14,7 +14,7 @@ function Note(props){
         return(
             <div>
                 <h3>Note</h3>
-                {props.content}
+                { props.content }
             </div>
         )
     }

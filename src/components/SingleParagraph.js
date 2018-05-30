@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 function SingleParagraph(props){
     return(
-        <p className={props.className}>{props.content}</p>
+        <p className={ props.className }>{ props.content }</p>
     );
 }
 

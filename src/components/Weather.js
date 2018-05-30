@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 class Weather extends React.Component{
 
     state = {
-        temperature: '',
-        description: ''
+        temperature: "",
+        description: ""
       }
 
     componentDidMount(){
@@ -12,7 +12,7 @@ class Weather extends React.Component{
     }
 
     fetchWeather = () => {
-        const key = '4bfbe202a7989b703e63a5a52ba0c29a';
+        const key = "4bfbe202a7989b703e63a5a52ba0c29a";
         fetch(`http://api.openweathermap.org/data/2.5/weather?q=Tokyo&units=metric&lang=EN&APPID=${key}`)
             .then(response => response.json())
             .then((weather) => {
@@ -20,16 +20,16 @@ class Weather extends React.Component{
                 let temperatureToRound = weather.main.temp;
                 let averageTemp = Math.round(temperatureToRound);
 
-                this.setState({temperature: averageTemp, description: weatherDescription})
+                this.setState({ temperature: averageTemp, description: weatherDescription })
             })
     }
 
     render(){
         return(
             <div>
-                { this.state.temperature} ℃
+                { this.state.temperature } ℃
                 <br/>
-                {this.state.description }
+                { this.state.description }
             </div>
         );
     }

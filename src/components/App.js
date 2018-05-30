@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Header from './Header';
-import Main from './Main';
-import Options from './Options';
-import '../App.css';
+import React, { Component } from "react";
+import Header from "./Header";
+import Main from "./Main";
+import Options from "./Options";
+import "../App.css";
 
 class App extends Component {
 
@@ -12,11 +12,11 @@ class App extends Component {
       note
     }
 
-    localStorage.setItem('storage', JSON.stringify(storage))
+    localStorage.setItem("storage", JSON.stringify(storage))
   }
 
   getStoredLocally = () => {
-    let stored = localStorage.getItem('storage');
+    let stored = localStorage.getItem("storage");
 
     if (stored === null){
         return [];
@@ -35,31 +35,33 @@ class App extends Component {
 
   // Recives changes from the Options-component
   handleOptionChange = (countDown, note) => {
-      this.setState({countDownSetByUser: countDown, noteSetByUser: note});
+      this.setState({ countDownSetByUser: countDown, noteSetByUser: note });
       this.storeLocally(countDown, note);
   }
 
   toggleOptionDisplay = () => {
-    this.state.optionMode ? this.setState({optionMode: false}) : this.setState({optionMode: true});
+    this.state.optionMode
+    ? this.setState({ optionMode: false })
+    : this.setState({ optionMode: true });
   }
 
   render() {
     return (
       <div className="container">
         <Header
-          toggleOptionDisplay={this.toggleOptionDisplay}
-          countDownSetByUser={this.state.countDownSetByUser}
+          toggleOptionDisplay={ this.toggleOptionDisplay }
+          countDownSetByUser={ this.state.countDownSetByUser }
         />
         <Main
-          toggleOptionDisplay={this.toggleOptionDisplay}
-          noteSetByUser={this.state.noteSetByUser}
-          handleOptionChange={this.handleOptionChange}
+          toggleOptionDisplay={ this.toggleOptionDisplay }
+          noteSetByUser={ this.state.noteSetByUser }
+          handleOptionChange={ this.handleOptionChange }
         />
         {this.state.optionMode &&
           <Options
-            handleOptionChange={this.handleOptionChange}
-            noteSetByUser={this.state.noteSetByUser}
-            countDownSetByUser={this.state.countDownSetByUser}
+            handleOptionChange={ this.handleOptionChange }
+            noteSetByUser={ this.state.noteSetByUser }
+            countDownSetByUser={ this.state.countDownSetByUser }
           />
         }
       </div>

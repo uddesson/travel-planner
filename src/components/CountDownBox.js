@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 function CountDownBox(props){
     if(props.stylingShouldBeReset === true){
         return(
-            <div className="header__countdown-box" style={props.style}>
-                <h2>{props.amount}</h2>
-                <p>{props.span}</p>
+            <div className="header__countdown-box" style={ props.style }>
+                <h2>{ props.amount }</h2>
+                <p>{ props.span }</p>
             </div>
             )
     } else {
         return(
             <div className="header__countdown-box">
-                <h2>{props.amount}</h2>
-                <p>{props.span}</p>
+                <h2>{ props.amount }</h2>
+                <p>{ props.span }</p>
             </div>
         );
     }

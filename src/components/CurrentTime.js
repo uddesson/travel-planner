@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 class CurrentTime extends React.Component{
 
     state = {
-        stockholmTime: '',
-        japanTime: ''
+        stockholmTime: "",
+        japanTime: ""
     }
 
     componentDidMount(){
@@ -27,14 +27,14 @@ class CurrentTime extends React.Component{
         stockholmTime = stockholmTime.toLocaleTimeString();
         japanTime = japanTime.toLocaleTimeString();
 
-        this.setState({stockholmTime, japanTime})
+        this.setState({ stockholmTime, japanTime })
     }
 
     render(){
         return(
             <p className="header__current-time">
-                SWEDEN: {this.state.stockholmTime} /
-                JAPAN: {this.state.japanTime}
+                SWEDEN: { this.state.stockholmTime } /
+                JAPAN: { this.state.japanTime }
             </p>
         );
     }
