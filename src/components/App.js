@@ -33,7 +33,8 @@ class App extends Component {
     noteSetByUser: this.storage.note
   }
 
-  handleChange = (countDown, note) => {
+  // Recives changes from the Options-component
+  handleOptionChange = (countDown, note) => {
       this.setState({countDownSetByUser: countDown, noteSetByUser: note});
       this.storeLocally(countDown, note);
   }
@@ -52,11 +53,11 @@ class App extends Component {
         <Main
           toggleOptionDisplay={this.toggleOptionDisplay}
           noteSetByUser={this.state.noteSetByUser}
-          handleChange={this.handleChange}
+          handleOptionChange={this.handleOptionChange}
         />
         {this.state.optionMode &&
           <Options
-            handleChange={this.handleChange}
+            handleOptionChange={this.handleOptionChange}
             noteSetByUser={this.state.noteSetByUser}
             countDownSetByUser={this.state.countDownSetByUser}
           />

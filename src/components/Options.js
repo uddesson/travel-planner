@@ -61,9 +61,9 @@ class Options extends React.Component{
         this.setState({note});
     }
 
-    handleChange = (event) => {
+    handleOptionChange = (event) => {
         event.preventDefault();
-        this.props.handleChange(this.state.formattedDate, this.state.note);
+        this.props.handleOptionChange(this.state.formattedDate, this.state.note);
     }
 
     // TODO: Separate these into components
@@ -72,7 +72,7 @@ class Options extends React.Component{
             <div id="options" className="options">
                 <h3>Options</h3>
 
-                <form onSubmit={this.handleChange}>
+                <form onSubmit={this.handleOptionChange}>
                     <TextInput
                         htmlFor={"Date"}
                         label={"Update departure date:"}
@@ -83,7 +83,7 @@ class Options extends React.Component{
                     <input type="submit"></input>
                 </form>
 
-                <form onSubmit={this.handleChange}>
+                <form onSubmit={this.handleOptionChange}>
                 <TextInput
                     htmlFor={"Note"}
                     label={"Current reminder:"}
@@ -99,7 +99,7 @@ class Options extends React.Component{
 }
 
 Options.propTypes = {
-    handleChange: PropTypes.func,
+    handleOptionChange: PropTypes.func,
     countDownSetByUser: PropTypes.number,
     noteSetByUser: PropTypes.string
 }
