@@ -1,19 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
+import SingleParagraph from "./SingleParagraph";
+import Title from "./Title";
 
 function CountDownBox(props){
     if(props.stylingShouldBeReset === true){
         return(
             <div className="header__countdown-box" style={ props.style }>
-                <h2>{ props.amount }</h2>
-                <p>{ props.span }</p>
+                <Title size={2} content={ props.amount} />
+                <SingleParagraph content={ props.span }/>
             </div>
             )
     } else {
         return(
             <div className="header__countdown-box">
-                <h2>{ props.amount }</h2>
-                <p>{ props.span }</p>
+                <Title size={2} content={ props.amount } />
+                <SingleParagraph content={ props.span }/>
             </div>
         );
     }
