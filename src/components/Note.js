@@ -1,10 +1,11 @@
 import React from "react";
+import Title from "./Title";
 
 function Note(props){
     if(props.isEmpty){
         return(
-            <div>
-                <h3>Note</h3>
+            <div className="grid__item">
+                <Title size={3} content="Note" />
                 <a href="#options" onClick={ props.toggleOptionDisplay }>
                     Add a reminder.
                 </a>
@@ -12,8 +13,8 @@ function Note(props){
         )
     } else {
         return(
-            <div>
-                <h3>Note</h3>
+            <div className="grid__item">
+                <Title size={3} content="Note" />
                 { props.content }
             </div>
         )

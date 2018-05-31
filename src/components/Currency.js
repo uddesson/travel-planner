@@ -1,6 +1,7 @@
 import React from "react";
 import SingleParagraph from "./SingleParagraph";
 import TextInput from "./TextInput";
+import Title from "./Title";
 import UpdateButton from "./UpdateButton";
 
 class Currency extends React.Component{
@@ -81,8 +82,8 @@ class Currency extends React.Component{
         const errorStyles = this.state.errorCaught ? " u-error " : "";
 
         return(
-            <div>
-                <h3>Currency Exchange:</h3>
+            <div className="grid__item">
+                <Title size={3} content="Currency Exchange:" />
 
                 <TextInput
                     htmlFor={ "Currency" }

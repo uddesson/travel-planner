@@ -1,4 +1,5 @@
 import React from "react";
+import Title from "./Title";
 
 class Weather extends React.Component{
 
@@ -32,9 +33,10 @@ class Weather extends React.Component{
     }
 
     render(){
-
         return(
-            <div>
+            <div className="grid__item">
+                <Title size={3} content="Weather" />
+
                 {!this.state.errorCaught &&
                     <React.Fragment>
                         { this.state.temperature } ℃

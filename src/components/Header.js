@@ -18,7 +18,7 @@ function Header(props){
                     Optionwheel
                 </a>
             </div>
-            <Title destination="Japan" />
+            <Title size={1} content="Your trip to Japan" />
             <CountDown
                 toggleOptionMode={ props.toggleOptionDisplay }
                 countDownSetByUser={ props.countDownSetByUser }/>

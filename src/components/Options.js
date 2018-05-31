@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import TextInput from "./TextInput";
 import StatusBar from "./StatusBar";
 import UpdateButton from "./UpdateButton";
+import Title from "./Title";
 
 class Options extends React.Component{
 
@@ -116,7 +117,8 @@ class Options extends React.Component{
                         statusMessage={ this.state.statusMessage }
                     />
                 }
-                <h3>Options</h3>
+
+                <Title size={2} content="Update your settings" />
 
                 <form onSubmit={ this.handleOptionChange }>
                     <TextInput
