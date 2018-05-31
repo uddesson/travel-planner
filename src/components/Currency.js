@@ -35,7 +35,7 @@ class Currency extends React.Component{
                 let date = new Date().toLocaleDateString();
 
                 if(currencyData){
-                    this.setState({ jpy, timeStamp:{date, time}} );
+                    this.setState({ jpy, timeStamp:{date, time}, errorCaught: false} );
                 }
             })
             .catch((error) => {
