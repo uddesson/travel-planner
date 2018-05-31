@@ -1,6 +1,7 @@
 import React from "react";
 import CountDownBox from "./CountDownBox";
 import PropTypes from "prop-types";
+import AnchorLink from "./AnchorLink";
 
 class CountDown extends React.Component{
 
@@ -99,9 +100,12 @@ class CountDown extends React.Component{
                 {   /* If time is up, show a link to set new date (toggles optionMode) */
                     this.state.timeUp &&
                     <div className="u-margin-top">
-                        <a href="#options" onClick={ this.props.toggleOptionMode }>
-                            Set a new date
-                        </a>
+                        <AnchorLink
+                            href="#options"
+                            className="u-right"
+                            onClick={ this.props.toggleOptionMode }
+                            content="Set a new date"
+                        />
                     </div>
                 }
             </div>

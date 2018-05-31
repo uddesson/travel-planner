@@ -1,5 +1,6 @@
 import React from "react";
 import Title from "./Title";
+import SingleParagraph from "./SingleParagraph";
 
 class Weather extends React.Component{
 
@@ -16,7 +17,7 @@ class Weather extends React.Component{
     }
 
     fetchWeather = () => {
-        const key = "4bfbe202a7989b703e63a5a52ba0c29a";
+        const key = "4bfbe202a7989b703e63a5a52ba0c29aaaa";
         fetch(`http://api.openweathermap.org/data/2.5/weather?q=Tokyo&units=metric&lang=EN&APPID=${key}`)
             .then(response => response.json())
             .then((weather) => {
@@ -27,7 +28,7 @@ class Weather extends React.Component{
                 this.setState({ temperature: averageTemp, description: weatherDescription })
             })
             .catch(() => {
-                this.errorMessage = "Sorry, no weather-data currently available.";
+                this.errorMessage = "Sorry, no weather-data is currently available.";
                 this.setState({ errorCaught: true })
             })
     }
@@ -39,15 +40,16 @@ class Weather extends React.Component{
 
                 {!this.state.errorCaught &&
                     <React.Fragment>
-                        { this.state.temperature } ℃
-                        <br/>
-                        { this.state.description }
+                        <SingleParagraph content={ this.state.temperature + "℃" }/>
+                        <SingleParagraph content={ this.state.description } />
                     </React.Fragment>
                 }
+
                 {this.state.errorCaught &&
-                    <React.Fragment>
-                        <p className="u-error">{this.errorMessage}</p>
-                    </React.Fragment>
+                    <SingleParagraph
+                        className="u-error"
+                        content={ this.errorMessage }
+                    />
                 }
             </div>
         );

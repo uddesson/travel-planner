@@ -6,7 +6,7 @@ function Note(props){
         return(
             <div className="grid__item">
                 <Title size={3} content="Note" />
-                <a href="#options" onClick={ props.toggleOptionDisplay }>
+                <a href="#options" onClick={ props.toggleOptionMode }>
                     Add a reminder.
                 </a>
             </div>

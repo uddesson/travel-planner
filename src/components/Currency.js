@@ -25,7 +25,7 @@ class Currency extends React.Component{
     }
 
     fetchCurrency = () => {
-        const key = "73c2dc0085c6832db729eaacfb4c5c9e";
+        const key = "73c2dc0085c6832db729eaacfb4c5c9eeee";
 
         fetch(`http://data.fixer.io/api/latest?access_key=${key}&symbols=JPY`)
             .then(response => response.json())
@@ -41,7 +41,7 @@ class Currency extends React.Component{
                 }
             })
             .catch((error) => {
-                this.errorMessage = "Sorry, no data currently available.";
+                this.errorMessage = "Sorry, no currency-data is available at the moment.";
                 this.setState({ errorCaught: true });
             })
             .finally(() => {

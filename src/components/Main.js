@@ -11,7 +11,7 @@ function Main(props){
             <Note
                 isEmpty={ !props.noteSetByUser ? true : false }
                 content={ props.noteSetByUser }
-                toggleOptionDisplay={ props.toggleOptionDisplay }/>
+                toggleOptionMode={ props.toggleOptionMode }/>
         </div>
     );
 }

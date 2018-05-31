@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import CurrentTime from "./CurrentTime";
 import Title from "./Title";
 import CountDown from "./CountDown";
+import AnchorLink from "./AnchorLink";
 
 
 function Header(props){
@@ -11,16 +12,17 @@ function Header(props){
         <div className="header">
             <div className="grid">
                 <CurrentTime/>
-                <a
+                <AnchorLink
                     href="#options"
                     className="u-right"
-                    onClick={ props.toggleOptionDisplay }>
-                    Optionwheel
-                </a>
+                    onClick={ props.toggleOptionMode }
+                    content="Optionwheel"
+                />
             </div>
+
             <Title size={1} content="Your trip to Japan" />
             <CountDown
-                toggleOptionMode={ props.toggleOptionDisplay }
+                toggleOptionMode={ props.toggleOptionMode }
                 countDownSetByUser={ props.countDownSetByUser }/>
         </div>
     );

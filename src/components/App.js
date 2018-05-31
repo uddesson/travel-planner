@@ -36,7 +36,7 @@ class App extends Component {
     noteSetByUser: this.storage.note
   }
 
-  toggleOptionDisplay = () => {
+  toggleOptionMode = () => {
     this.state.optionMode
     ? this.setState({ optionMode: false })
     : this.setState({ optionMode: true });
@@ -52,11 +52,11 @@ class App extends Component {
     return (
       <div className="container">
         <Header
-          toggleOptionDisplay={ this.toggleOptionDisplay }
+          toggleOptionMode={ this.toggleOptionMode }
           countDownSetByUser={ this.state.countDownSetByUser }
         />
         <Main
-          toggleOptionDisplay={ this.toggleOptionDisplay }
+          toggleOptionMode={ this.toggleOptionMode }
           noteSetByUser={ this.state.noteSetByUser }
           handleOptionChange={ this.handleOptionChange }
         />
