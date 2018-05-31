@@ -25,12 +25,6 @@ class CountDown extends React.Component{
         );
     }
 
-    componentWillReceiveProps(){
-        /* If timeUp isn"t already set to false, it must be when new props are recived,
-        because that means the user has set a new date and styling should be different */
-        this.setState({ timeUp: false })
-    }
-
     setCountDown = () => {
         let countDownDate = this.props.countDownSetByUser;
 
@@ -61,9 +55,17 @@ class CountDown extends React.Component{
         return value;
     }
 
+    componentWillReceiveProps(){
+        /* Trigged when the user toggles options and sets a first/new date,
+        which means the countdown can go from 0 to other, and timeUp-state must be checked */
+        this.checkIfTimeIsUp(this.state.daysLeft + this.state.hoursLeft + this.state.minutesLeft)
+    }
+
     checkIfTimeIsUp(timeSum){
         if(timeSum === 0){
             this.setState({ timeUp: true });
+        } else {
+            this.setState({ timeUp: false });
         }
     }
 
