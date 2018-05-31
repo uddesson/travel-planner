@@ -19,10 +19,12 @@ function Header(props){
                     content="Optionwheel"
                     showAsImage={true}
                     src="../images/settings-work-tool.png"
+                    alt="Settings Icon"
                 />
             </div>
 
             <Title size={1} content="Your trip to Japan" />
+
             <CountDown
                 toggleOptionMode={ props.toggleOptionMode }
                 countDownSetByUser={ props.countDownSetByUser }/>

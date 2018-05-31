@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function UpdateButton(props){
     return(
@@ -8,6 +9,10 @@ function UpdateButton(props){
             onClick={ props.onClick }>
         </input>
     );
+}
+
+UpdateButton.propTypes = {
+    onClick: PropTypes.func
 }
 
 export default UpdateButton;

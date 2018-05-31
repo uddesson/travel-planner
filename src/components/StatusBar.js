@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function StatusBar(props){
     return(
@@ -6,6 +7,10 @@ function StatusBar(props){
             {props.statusMessage}
         </div>
     );
+}
+
+StatusBar.propTypes = {
+    statusMessage: PropTypes.string
 }
 
 export default StatusBar;
