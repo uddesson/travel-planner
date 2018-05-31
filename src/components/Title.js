@@ -4,24 +4,28 @@ import PropTypes from "prop-types";
 function Title(props){
     if(props.size === 1){
         return(
-            <h1 className="u-center">{ props.content }</h1>
+            <h1 className={ props.className }>{ props.content }</h1>
         );
     }
     if(props.size === 2){
         return(
-            <h2>{ props.content }</h2>
+            <h2 className={ props.className }>{ props.content }</h2>
         );
     }
     if(props.size === 3){
         return(
-            <h3>{ props.content }</h3>
+            <h3 className={ props.className }>{ props.content }</h3>
         );
     }
 };
 
 Title.propTypes = {
     size: PropTypes.number,
-    content: PropTypes.string
+    className: PropTypes.string,
+    content: PropTypes.PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]),
 }
 
 export default Title;
