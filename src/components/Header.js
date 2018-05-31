@@ -17,6 +17,8 @@ function Header(props){
                     className="u-right"
                     onClick={ props.toggleOptionMode }
                     content="Optionwheel"
+                    showAsImage={true}
+                    src="../images/settings-work-tool.png"
                 />
             </div>
 
