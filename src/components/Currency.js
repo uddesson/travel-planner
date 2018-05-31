@@ -1,6 +1,7 @@
 import React from "react";
 import SingleParagraph from "./SingleParagraph";
 import TextInput from "./TextInput";
+import UpdateButton from "./UpdateButton";
 
 class Currency extends React.Component{
 
@@ -106,9 +107,7 @@ class Currency extends React.Component{
                     || this.errorMessage}
                 />
 
-                {/* TODO: Make this to a icon-btn component */}
-                <button onClick={ this.refresh }>(Refresh)</button>
-
+                <UpdateButton onClick={ this.refresh } />
             </div>
         );
     }

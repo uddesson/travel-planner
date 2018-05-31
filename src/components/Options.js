@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import TextInput from "./TextInput";
 import StatusBar from "./StatusBar";
+import UpdateButton from "./UpdateButton";
 
 class Options extends React.Component{
 
@@ -125,7 +126,7 @@ class Options extends React.Component{
                         onChange={ this.validateAndSetNewDateInput }
                         placeholder="YYYY-MM-DD"
                     />
-                    <input type="submit" value="Update"></input>
+                    <UpdateButton />
                 </form>
 
                 <form onSubmit={ this.handleOptionChange }>
@@ -136,7 +137,7 @@ class Options extends React.Component{
                         value={ this.state.note || "" }
                         placeholder="Max 120 characters"
                     />
-                    <input type="submit" value="Update"></input>
+                   <UpdateButton />
                 </form>
             </div>
         )
