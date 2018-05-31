@@ -4,26 +4,27 @@ import CurrentTime from "./CurrentTime";
 import Title from "./Title";
 import CountDown from "./CountDown";
 import AnchorLink from "./AnchorLink";
+import Icon from "../images/settings-work-tool.png";
 
 
 function Header(props){
 
     return(
         <div className="header">
-            <div className="grid">
+            <div>
                 <CurrentTime/>
                 <AnchorLink
                     href="#options"
-                    className="u-right"
+                    className="header__icon"
                     onClick={ props.toggleOptionMode }
                     content="Optionwheel"
                     showAsImage={true}
-                    src="../images/settings-work-tool.png"
+                    src={ Icon }
                     alt="Settings Icon"
                 />
             </div>
 
-            <Title size={1} content="Your trip to Japan" />
+            <Title size={1} content="Your trip to Japan" className="u-margin-bottom u-center"/>
 
             <CountDown
                 toggleOptionMode={ props.toggleOptionMode }
