@@ -50,6 +50,7 @@ a{
 
 a:hover{
     color: var(--link-color);
+    cursor: pointer;
 }
 
 .grid__item>a{
