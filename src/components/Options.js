@@ -46,14 +46,22 @@ class Options extends React.Component{
     validateAndSetNewDateInput = (event) => {
         event.preventDefault();
         let dateSetAsInput = event.target.value;
+        // Is set directly onChange because it's the the value of the inputfield
         this.setState( {dateSetAsInput} );
 
         let now = new Date();
         let inputDateToValidate = new Date(dateSetAsInput);
 
-        if(inputDateToValidate > now){
-            // Format the YYYY-MM-HH value to countdown-format
+        // Expression for YYYY-MM-HH
+        const regex = new RegExp(/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/);
+
+        /* This will validate both the input format (dateSetAsInput) and
+        check so the date (inputDateToValidate) has not already passed */
+        if(regex.test(dateSetAsInput) && inputDateToValidate > now){
+
             let dateInCountDownFormat = new Date(inputDateToValidate).getTime();
+
+            // Date was valid, set to state in countdown-format
             this.setState({ dateInCountDownFormat, showStatus: false });
 
         } else {
