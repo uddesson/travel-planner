@@ -77,24 +77,28 @@ class CountDown extends React.Component{
         return(
             <div className="u-center">
                 <div className="grid--fixed">
+
                     <CountDownBox
                         span={ "Days" }
                         amount={ this.state.daysLeft }
                         stylingShouldBeReset={ this.state.timeUp }
                         style={ timeUpStyles }
                     />
+
                     <CountDownBox
                         span={ "Hours" }
                         amount={ this.state.hoursLeft }
                         stylingShouldBeReset={ this.state.timeUp }
                         style={ timeUpStyles }
                     />
+
                     <CountDownBox
                         span={ "Minutes" }
                         amount={ this.state.minutesLeft }
                         stylingShouldBeReset={ this.state.timeUp }
                         style={ timeUpStyles }
                     />
+
                 </div>
 
                 {   /* If time is up, show a link to set new date (toggles optionMode) */

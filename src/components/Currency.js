@@ -56,7 +56,6 @@ class Currency extends React.Component{
         can be added again, making elements fade in on refresh */
         this.setState({ fade: false })
 
-        // Fetch latest currency rate from API
         this.fetchCurrency();
     }
 
@@ -110,6 +109,7 @@ class Currency extends React.Component{
                 />
 
                 <UpdateButton onClick={ this.refresh } />
+
             </div>
         );
     }
