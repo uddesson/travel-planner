@@ -1,23 +1,28 @@
 import React from "react";
 import Title from "./Title";
 import AnchorLink from "./AnchorLink";
+import SingleParagraph from "./SingleParagraph";
 
 function Note(props){
     if(props.isEmpty){
         return(
             <div className="grid__item">
                 <Title size={3} content="Reminder" />
-                <a href="#options" onClick={ props.toggleOptionMode }>
-                    Add a reminder.
-                </a>
+
+                <AnchorLink
+                    href="#options"
+                    onClick={ props.toggleOptionMode }
+                    content="Add a reminder"
+                />
             </div>
         )
     } else {
         return(
             <div className="grid__item">
                 <Title size={3} content="Reminder" />
-                { props.content }
-                <br/>
+
+                <SingleParagraph content={ props.content } />
+
                 <AnchorLink
                     href="#options"
                     className="u-margin-top"
