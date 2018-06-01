@@ -9,7 +9,7 @@ class Currency extends React.Component{
     state = {
         jpy: "",
         userInput: "",
-        converted: 0,
+        converted: "",
         timeStamp: {
             date: "",
             time: ""
@@ -71,7 +71,7 @@ class Currency extends React.Component{
             this.setState({ userInput })
 
             const calc = userInput * this.state.jpy;
-            let converted = calc.toFixed(2);
+            let converted = calc.toFixed(0);
 
             this.setState({ converted })
         }
@@ -87,7 +87,7 @@ class Currency extends React.Component{
 
                 <TextInput
                     htmlFor={ "Currency" }
-                    label={ " EURO: " }
+                    label={ " Enter a value: " }
                     value={ this.state.userInput }
                     className="u-block"
                     onChange={ this.convertUsersInput }
@@ -95,7 +95,7 @@ class Currency extends React.Component{
                 />
 
                 <SingleParagraph
-                    content={ this.state.converted + " JPY" }
+                    content={this.state.userInput + " EURO => " + this.state.converted + " JPY" }
                 />
 
                 <SingleParagraph
