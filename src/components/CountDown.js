@@ -13,14 +13,13 @@ class CountDown extends React.Component{
     }
 
     componentDidMount(){
-        /* Call setCountDownDate initally,
-        to prevent user from seeing empty values until one minute has passed */
+        /* Call setCountDownDate initally, to prevent user from
+        seeing empty values until one minute has passed */
         this.setCountDown();
 
         /* Set a timeinterval at one second even though minutes doesn't show,
-        sneaky way of displaying new countdown-date "directly", instead of waiting one minute.
-
-        TODO: Explore other ways of solving this */
+        sneaky way of displaying new countdown-date "directly", instead of
+        waiting one minute. */
         this.interval = setInterval(
             () => this.setCountDown(), 1000
         );
@@ -33,13 +32,13 @@ class CountDown extends React.Component{
         let timeLeft = countDownDate - now;
 
         let daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        daysLeft = this.resetIfUnvalid(daysLeft);
+        daysLeft = this.setToZeroIfUnvalidNumber(daysLeft);
 
         let hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        hoursLeft = this.resetIfUnvalid(hoursLeft);
+        hoursLeft = this.setToZeroIfUnvalidNumber(hoursLeft);
 
         let minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        minutesLeft = this.resetIfUnvalid(minutesLeft);
+        minutesLeft = this.setToZeroIfUnvalidNumber(minutesLeft);
 
         let timeSum = daysLeft + hoursLeft + minutesLeft;
         this.setState({ daysLeft, hoursLeft, minutesLeft })
@@ -47,7 +46,7 @@ class CountDown extends React.Component{
         this.checkIfTimeIsUp(timeSum);
     }
 
-    resetIfUnvalid = (value) => {
+    setToZeroIfUnvalidNumber = (value) => {
         /* Handles negative date-values set by default if no countdown-date
         has been set by user. Instead returns a 0 to the countdown-components */
         if(value <= 0){
@@ -97,6 +96,7 @@ class CountDown extends React.Component{
                         style={ timeUpStyles }
                     />
                 </div>
+
                 {   /* If time is up, show a link to set new date (toggles optionMode) */
                     this.state.timeUp &&
                     <div className="u-margin-top">
