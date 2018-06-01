@@ -72,7 +72,7 @@ class CountDown extends React.Component{
 
     render(){
         const timeUpStyles = {
-            backgroundColor: "rgba(76, 103, 90, 0.4)",
+            backgroundColor: "rgba(94, 255, 180, 0.372)",
         }
 
         return(
