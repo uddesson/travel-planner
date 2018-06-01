@@ -5,7 +5,7 @@ function Note(props){
     if(props.isEmpty){
         return(
             <div className="grid__item">
-                <Title size={3} content="Note" />
+                <Title size={3} content="Reminder" />
                 <a href="#options" onClick={ props.toggleOptionMode }>
                     Add a reminder.
                 </a>
@@ -14,7 +14,7 @@ function Note(props){
     } else {
         return(
             <div className="grid__item">
-                <Title size={3} content="Note" />
+                <Title size={3} content="Reminder" />
                 { props.content }
             </div>
         )

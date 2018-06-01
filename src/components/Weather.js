@@ -17,7 +17,7 @@ class Weather extends React.Component{
     }
 
     fetchWeather = () => {
-        const key = "4bfbe202a7989b703e63a5a52ba0c29aaaa";
+        const key = "4bfbe202a7989b703e63a5a52ba0c29a";
         fetch(`http://api.openweathermap.org/data/2.5/weather?q=Tokyo&units=metric&lang=EN&APPID=${key}`)
             .then(response => response.json())
             .then((weather) => {
@@ -36,12 +36,12 @@ class Weather extends React.Component{
     render(){
         return(
             <div className="grid__item">
-                <Title size={3} content="Weather" />
+                <Title size={3} content="Current Weather" />
 
                 {!this.state.errorCaught &&
                     <React.Fragment>
                         <SingleParagraph content={ this.state.temperature + "℃" }/>
-                        <SingleParagraph content={ this.state.description } />
+                        <SingleParagraph content={ "And " + this.state.description } />
                     </React.Fragment>
                 }
 

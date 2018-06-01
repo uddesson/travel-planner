@@ -6,13 +6,15 @@ function UpdateButton(props){
         <input
             type="submit"
             value="Update"
+            className={ props.className }
             onClick={ props.onClick }>
         </input>
     );
 }
 
 UpdateButton.propTypes = {
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    className: PropTypes.string
 }
 
 export default UpdateButton;

@@ -10,20 +10,27 @@ function Header(props){
 
     return(
         <div className="header">
-            <div>
+            <div className="u-margin-bottom">
                 <CurrentTime/>
                 <AnchorLink
                     href="#options"
                     className="u-right"
                     onClick={ props.toggleOptionMode }
+                    content="Options ↓"
                 />
             </div>
 
-            <Title size={1} content="Your trip to Japan" className="u-margin-bottom u-center"/>
+            <Title
+                size={1}
+                content="Your trip to Japan"
+                className="u-margin-bottom u-center"
+            />
 
             <CountDown
                 toggleOptionMode={ props.toggleOptionMode }
-                countDownSetByUser={ props.countDownSetByUser }/>
+                countDownSetByUser={ props.countDownSetByUser }
+            />
+
         </div>
     );
 }

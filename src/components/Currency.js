@@ -25,7 +25,7 @@ class Currency extends React.Component{
     }
 
     fetchCurrency = () => {
-        const key = "73c2dc0085c6832db729eaacfb4c5c9eeee";
+        const key = "73c2dc0085c6832db729eaacfb4c5c9e";
 
         fetch(`http://data.fixer.io/api/latest?access_key=${key}&symbols=JPY`)
             .then(response => response.json())
@@ -87,8 +87,9 @@ class Currency extends React.Component{
 
                 <TextInput
                     htmlFor={ "Currency" }
-                    label={ " EURO" }
+                    label={ " EURO: " }
                     value={ this.state.userInput }
+                    className="u-block"
                     onChange={ this.convertUsersInput }
                     placeholder="Enter value"
                 />
@@ -99,7 +100,7 @@ class Currency extends React.Component{
 
                 <SingleParagraph
                     className="u-text-bold"
-                    content="Currency exhange rate last updated:"
+                    content="Currency exchange rate last updated:"
                 />
 
                 <SingleParagraph

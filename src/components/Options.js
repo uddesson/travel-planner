@@ -126,23 +126,25 @@ class Options extends React.Component{
                     />
                 }
 
-                <Title size={2} content="Update your settings" />
+                <Title size={2} content="Update your trip" />
 
                 <form onSubmit={ this.handleOptionChange }>
                     <TextInput
                         htmlFor={ "Date" }
                         label={ "Update departure date:" }
                         value={ this.state.dateSetAsInput }
+                        className="u-block"
                         onChange={ this.validateAndSetNewDateInput }
                         placeholder="YYYY-MM-DD"
                     />
-                    <UpdateButton />
                 </form>
 
                 <form onSubmit={ this.handleOptionChange }>
                     <TextInput
+                        textArea={true}
                         htmlFor={ "Note" }
                         label={ "Current reminder:" }
+                        className="u-block"
                         onChange={ this.setNoteInput }
                         value={ this.state.note || "" }
                         placeholder="Max 120 characters"

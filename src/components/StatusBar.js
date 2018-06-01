@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function StatusBar(props){
     return(
         <div className="statusbar">
-            {props.statusMessage}
+            { props.statusMessage }
         </div>
     );
 }
