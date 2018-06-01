@@ -91,7 +91,7 @@ class Currency extends React.Component{
                     value={ this.state.userInput }
                     className="u-block"
                     onChange={ this.convertUsersInput }
-                    placeholder="Enter value"
+                    placeholder="How much?"
                 />
 
                 <SingleParagraph

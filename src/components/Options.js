@@ -131,7 +131,7 @@ class Options extends React.Component{
                 <form onSubmit={ this.handleOptionChange }>
                     <TextInput
                         htmlFor={ "Date" }
-                        label={ "Update departure date:" }
+                        label={ "Departure date:" }
                         value={ this.state.dateSetAsInput }
                         className="u-block"
                         onChange={ this.validateAndSetNewDateInput }

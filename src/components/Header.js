@@ -16,7 +16,7 @@ function Header(props){
                     href="#options"
                     className="u-right"
                     onClick={ props.toggleOptionMode }
-                    content="Options ↓"
+                    content="Show Options"
                 />
             </div>
 
