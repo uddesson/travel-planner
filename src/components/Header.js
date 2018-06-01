@@ -4,7 +4,6 @@ import CurrentTime from "./CurrentTime";
 import Title from "./Title";
 import CountDown from "./CountDown";
 import AnchorLink from "./AnchorLink";
-import Icon from "../images/settings-work-tool.png";
 
 
 function Header(props){
@@ -15,12 +14,8 @@ function Header(props){
                 <CurrentTime/>
                 <AnchorLink
                     href="#options"
-                    className="header__icon"
+                    className="u-right"
                     onClick={ props.toggleOptionMode }
-                    content="Optionwheel"
-                    showAsImage={true}
-                    src={ Icon }
-                    alt="Settings Icon"
                 />
             </div>
 
