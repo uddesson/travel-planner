@@ -206,6 +206,10 @@ Utilities
     color: var(--error-color);
 }
 
+.u-text--light{
+  color: var(--main-light-color);
+}
+
 .u-block{
     display: block;
     width: 100%;

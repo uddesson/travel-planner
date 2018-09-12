@@ -106,7 +106,7 @@ class CountDown extends React.Component{
                     <div className="u-margin-top">
                         <AnchorLink
                             href="#options"
-                            className="u-right"
+                            className="u-right u-text--light"
                             onClick={ this.props.toggleOptionMode }
                             content="Set a new date"
                         />
