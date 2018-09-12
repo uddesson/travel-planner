@@ -5,7 +5,7 @@ General
 html {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    --main-light-color: #f2f2f2;
+    --main-light-color: #f2f2f2db;
     --main-grey-color: #dfdfdf;
     --main-dark-color: #2d2d2d;
     --success-color: #53aa8b;
@@ -44,7 +44,7 @@ h2{
 }
 
 a{
-    color: var(--main-light-color);
+    color: var(--main-dark-color);
     text-decoration: none;
 }
 
@@ -68,6 +68,12 @@ a:hover{
 .container{
     background-color: var(--main-grey-color);
     min-height: 100vh;
+}
+
+.container__inner{
+  width: 100%;
+  margin: 0px;
+  margin-bottom: 10px;
 }
 
 .grid--fixed{
@@ -179,6 +185,10 @@ Utilities
     margin-top: 15px;
 }
 
+.u-margin-left{
+  margin-left: 10px;
+}
+
 .u-margin-bottom{
     margin-bottom: 25px;
 }
@@ -233,8 +243,18 @@ Animations
         font-size: 1.8em;
     }
 
-    .header, .options, .main{
+    .container__inner{
+      width: 60%;
+      margin: 0 auto;
+      margin-bottom: 40px;
+    }
+
+    .header {
         padding: 40px;
+    }
+
+    .main, .options {
+      padding: 40px 110px;
     }
 
     .header{
@@ -243,6 +263,7 @@ Animations
 
     .options{
         width: 50vw;
+        margin-left: 10px;
     }
 
     .grid--fixed{
