@@ -57,6 +57,7 @@ class App extends Component {
         />
         <Main
           toggleOptionMode={ this.toggleOptionMode }
+          optionMode={ this.state.optionMode }
           noteSetByUser={ this.state.noteSetByUser }
           handleOptionChange={ this.handleOptionChange }
         />
