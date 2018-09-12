@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import CurrentTime from "./CurrentTime";
 import Title from "./Title";
 import CountDown from "./CountDown";
-import AnchorLink from "./AnchorLink";
-
 
 function Header(props){
   return(
