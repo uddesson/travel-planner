@@ -36,7 +36,7 @@ class Weather extends React.Component{
     render(){
         return(
             <div className="grid__item">
-                <Title size={3} content="Current Weather" />
+                <Title size={3} content="Current Weather:" />
 
                 {!this.state.errorCaught &&
                     <React.Fragment>

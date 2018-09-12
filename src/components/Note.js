@@ -7,7 +7,7 @@ function Note(props){
     if(props.isEmpty){
         return(
             <div className="grid__item">
-                <Title size={3} content="Reminder" />
+                <Title size={3} content="Reminder:" />
 
                 <AnchorLink
                     href="#options"
@@ -19,7 +19,7 @@ function Note(props){
     } else {
         return(
             <div className="grid__item">
-                <Title size={3} content="Reminder" />
+                <Title size={3} content="Reminder:" />
 
                 <SingleParagraph content={ props.content } />
 
