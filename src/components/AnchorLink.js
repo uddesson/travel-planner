@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 function AnchorLink(props){
     return(
-        <a href={props.href} className={props.className} onClick={props.onClick}>
-            {props.content}
-        </a>
+      <a href={props.href} className={props.className} onClick={props.onClick}>
+          {props.content}
+      </a>
     );
 }
 
