@@ -2,14 +2,9 @@
 
 A simple travel planner-dashboard created with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-* https://github.com/uddesson/travel-planner
-- Emma Uddesson
-
 ## TODO
 
 * Currently the application assumes you're traveling to Japan. (Because why wouldn't you.) I want to add the option to set a different country, and update all the components thereafter.
-
-* Change the way you navigate to the options-section. Now it's an anchorlink connected to the options-id, but also set to toggle the visibility of this section – so depending on if it's already toggled or not – you wont be sent there, or see it.
 
 ## Resources
 
